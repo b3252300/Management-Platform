@@ -1,0 +1,36 @@
+/* 只需要重写你需要的即可 */
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #b200d6, //主色
+    ),
+    'success': (
+      'base': #67C23A,  // 成功色
+    ),
+    'warning': (
+      'base': #E6A23C,  // 警告色
+    ),
+    'danger': (
+      'base': #F56C6C,  // 危險色
+    ),
+    'error': (
+      'base': #ff14bc,  // 錯誤色
+    ),
+  )
+);
+
+// .el-button {
+//   background-color: #25C269;
+//   // 按钮样式
+// }
+
+.el-input {
+  // 输入框样式
+}
+
+.el-select {
+  // 下拉选择框样式
+}
+
+// 其他自定义样式...

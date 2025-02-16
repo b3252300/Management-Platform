@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('@/assets/fonts/NotoSansTC-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('@/assets/fonts/NotoSansTC-Medium.ttf') format('truetype');
+  font-weight: 500; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('@/assets/fonts/NotoSansTC-SemiBold.ttf') format('truetype');
+  font-weight: 600; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url('@/assets/fonts/NotoSansTC-Bold.ttf') format('truetype');
+  font-weight: 700; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('@/assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('@/assets/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700; 
+  font-style: normal;
+}
+
+
+
+
+$base-margin: 8px;
+.mr{
+  &-auto{
+    margin-right: auto;
+  }
+  &-0{
+    margin-right: 0 !important; 
+  }
+  @for $i from 1 through 5 {
+    @media (min-width: 768px) {
+      &-md-#{$i} {
+            margin-right: $i * $base-margin  !important;
+      }
+    } 
+    &-#{$i} {
+      margin-right: $i * $base-margin  !important;
+      //margin-left:0.5rem ;
+    }
+
+  }
+
+}
+
+.ml{
+  &-auto{
+    margin-left: auto !important;
+  }
+  &-0{
+    margin-left: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      margin-left: $i * $base-margin;
+      //margin-left:0.5rem ;
+    }
+
+  }
+}
+
+.mt{
+  &-auto{
+    margin-top: auto;
+  }
+  &-0{
+    margin-top: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      margin-top: $i * $base-margin;
+      //margin-left:0.5rem ;
+    }
+
+}
+}
+
+
+.mb{
+  &-auto{
+    margin-bottom: auto;
+  }
+  &-0{
+    margin-bottom: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      margin-bottom: $i * $base-margin;
+      //margin-left:0.5rem ;
+    }
+  }
+}
+
+.p{
+  &-0{
+    padding: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      padding: $i * $base-margin;
+      //margin-left:0.5rem ;
+    }
+
+}
+}
+.px{
+  &-0{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      padding-left: $i * $base-margin;
+      padding-right: $i * $base-margin;
+    
+    }
+
+}
+}
+.pt{
+  &-auto{
+    padding-top: auto;
+  }
+  &-0{
+    padding-top: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      padding-top: $i * $base-margin;
+      //margin-left:0.5rem ;
+    }
+
+}
+}
+.pb{
+  &-auto{
+    padding-bottom:  auto;
+  }
+  &-0{
+    padding-bottom: 0 !important;
+  }
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      padding-bottom: $i * $base-margin;
+      //margin-left:0.5rem ;
+    }
+
+}
+}
+
+.float{
+  &-left{
+    float: left;
+  }
+  &-right{
+    float: right;
+  }
+}
+
+
+//系統色
+$gray-color:#C8C8C8;
+$primary-color:#008CD6;
+$success-color:#8FC31F;
+$danger-color:#EB4D3D;
+$lighten-steps: (
+  3: 0.7,
+  5: 0.5,
+  7: 0.3,
+  8: 0.2,
+  9: 0.1
+);
+
+
+:root {
+  --el-color-primary: #{$primary-color};
+  --el-color-primary-dark-2: hsl(#{hue($primary-color)},#{saturation($primary-color)}, 60%);
+@each $step, $alpha in $lighten-steps {
+  --el-color-primary-light-#{$step}: rgba(
+      #{red($primary-color)},
+      #{green($primary-color)},
+      #{blue($primary-color)},
+      #{$alpha}
+    );
+}
+--el-color-success: #{$success-color};
+--el-color-success-dark-2: hsl(#{hue($success-color)},#{saturation($success-color)}, 60%);
+@each $step, $alpha in $lighten-steps {
+--el-color-success-light-#{$step}: rgba(
+    #{red($success-color)},
+    #{green($success-color)},
+    #{blue($success-color)},
+    #{$alpha}
+  );
+}
+
+
+// --el-color-success: #{$success-color};
+// --el-color-success-dark-2: hsl(#{hue($success-color)},#{saturation($success-color)}, 60%);
+// @each $level, $lightness in $lighten-hsl {
+//   --el-color-success-light-#{$level}: hsl(
+//     #{hue($success-color)},
+//     #{saturation($success-color)},
+//     #{$lightness}
+//   );
+// }
+--el-menu-hover-bg-color: #FAFAFA;
+--el-font-family: "Roboto", "Noto Sans TC", "Microsoft JhengHei", Microsoft YaHei, PingFang, STHeiti, sans-serif, serif, Arial;
+--el-text-color-regular: #333;
+  --el-text-color-primary: #333;  
+  --root-header-info-bar-height: 68px;
+  --root-footer-height: 20px;
+  --root-sidebar-width: 260px;
+  --el-menu-level-padding: 30px;
+  --el-menu-item-height: 40px;
+  --el-menu-sub-item-height:40px;
+  --el-dialog-content-font-size: 15px;
+  --el-color-danger: #f56c6c;
+  // --el-text-color-placeholder: #333;
+  --el-disabled-bg-color: #F5F7FA;
+
+}
