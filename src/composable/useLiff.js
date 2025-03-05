@@ -1,6 +1,6 @@
 import liff from "@line/liff";
 import router from '@/router'
-
+import { ElMessageBox } from 'element-plus'
 
 export default function useLiff() {
   const liffId = import.meta.env.VITE_LIFF_ID;  
@@ -80,8 +80,23 @@ const lineInitGetBasicData = async () => {
             type: "text",
             text: txt,
          },
-      ]);
-      liff.closeWindow();
+      ]).then(() => {
+        console.log("message sent");
+        liff.closeWindow();
+      
+      }).catch((err) => {
+        console.log("error", err);
+
+        ElMessageBox.alert(`無法發送訊息至LINE聊天室`,  {       
+          confirmButtonText: '確定',
+          showClose: false,
+          center: true            
+        }).finally(() => {
+          liff.closeWindow();
+        });
+
+      })
+     
     }
 
   };
